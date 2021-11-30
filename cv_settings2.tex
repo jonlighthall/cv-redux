@@ -1,0 +1,86 @@
+%% Set indentation here
+%% The letter should either be indented (each paragraph, address, and signature) or not at all
+\newif\ifblock
+\blockfalse %<= set flag
+\ifblock
+%% Block format
+\def\indent{0in}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{1\baselineskip}
+\else
+%% Indented
+\def\indent{3in}
+\fi
+
+\providecommand{\printname}{Jonathan C.\ Lighthall}
+\newcommand{\addresssuffix}{\\
+\href{mailto:jonathan.lighthall@nrlssc.navy.mil}{jonathan.lighthall@nrlssc.navy.mil} | (228) 688-4842\\%
+}
+
+\newcommand{\nameaddress}[1]{
+\noindent\boldtext{\printname}\\
+#1%
+\addresssuffix
+}
+
+\newcommand{\workaddress}{U.S. Naval Research Laboratory, Code 7181\\
+Stennis Space Center, MS
+%Acoustic Simulation, Measurement, and Tactics Branch
+}
+
+\newcommand{\desctext}[1]{\textit{\normalsize#1}}
+
+%% Definitions for extras
+\newcommand{\extra}[1]{{\color{note_gray}#1}} %print extra items in gray
+
+\newcommand{\objective}[2]{
+\phantomsection
+\addcontentsline{toc}{chapter}{#1}
+\vspace*{-2\baselineskip}
+\section*{#1}
+\begin{changemargin}{15pt}%
+%\pangram{20}
+%\hspace{6pt}
+#2
+\end{changemargin}
+}
+
+\newcommand{\desc}[1]{%this environment provides an added description of the current item
+\renewenvironment{quote}{%
+\list{}{%
+    \setlength{\leftmargin}{22pt}
+    %\rightmargin0pt%\leftmargin
+		\setlength{\itemsep}{0pt}
+	\setlength{\parskip}{0pt}
+	\setlength{\parsep}{0pt}
+	\setlength{\topsep}{0pt}
+	\setlength{\partopsep}{0pt}
+  }
+  \item\relax
+}
+{\endlist}
+\begin{quote}
+%\vspace*{-0.35\baselineskip}%
+%\textit
+\desctext
+{#1}% \the\leftmargin, \the\rightmargin
+%\vspace*{-0.35\baselineskip}%
+\end{quote}
+}
+
+%% Unabridged
+\newif\ifunabridged
+%\unabridgedfalse
+\unabridgedtrue
+
+\newcommand{\shortname}{J.\ C.\ Lighthall}
+
+\newcommand{\boldtext}[1]{\textbf{\scshape\normalsize#1}}
+
+\newcommand{\headtext}[1]{\textit{\normalsize#1}}
+
+\usepackage[numbib]{tocbibind}
+
+\newcommand{\jclonly}[1]{#1}
+
+\newcommand{\heliosonly}[1]{}

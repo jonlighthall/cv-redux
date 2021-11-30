@@ -1,0 +1,37 @@
+\documentclass{article}
+\input{src/packages}
+
+%% Render the readme file
+\usepackage[fencedCode]{markdown}
+\begin{document}
+\begin{align*}
+\lambda &= \vec{u} \dot \hat{q}^* = |\vec{u}| \hat{u} \dot \hat{q}^*\\
+\lambda &= \vec{u} \cdot \hat{q}^* = |\vec{u}| \hat{u} \cdot \hat{q}^*\\
+\lambda &= \vec{u} \cdot \hat{q}^* = |\vec{u}| \hat{u} \cdot \hat{q}^*   
+\end{align*}
+
+\markdownInput{readme.md}
+
+%%Test auto text
+\section{autotext}
+\subsection{lipsum}
+\lipsum
+\subsection{jack}
+\jack{20}
+\subsection{pangram}
+\pangram{20}
+\subsection{cappangram}
+\cappangram{20}
+\subsection{autotext}
+\autotext{2}{2}{2}
+
+%% Test the BibTeX bibliography and style file
+\section{bib\_test}
+Here is the first citation \citet[Eq.~4]{Lighthall_2010}.	    %from bibtest_cv.tex
+%\nocite{*}                                                      %from bibtest_nocite.tex
+\bibliographystyle{src/elsarticle-aps} 
+\bibliography{src/bib_link}
+
+%% Test the time stamp
+\input{src/time_stamp.tex}
+\end{document}
