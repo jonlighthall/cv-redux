@@ -1,13 +1,13 @@
-# art
+# cv-redux
 Article template compatible with Overleaf.
 Includes TexnicCenter project file.
 
 ## Installation
 check out with
 
-`git clone https://github.com/jonlighthall/art.git` (HTTPS)
+`git clone https://github.com/jonlighthall/cv-redux.git` (HTTPS)
 
-`git clone git@github.com:jonlighthall/art.git` (SSH)
+`git clone git@github.com:jonlighthall/cv-redux.git` (SSH)
 
 ## Submodule
 This repository includes a copy of the files from https://github.com/jonlighthall/src.git.
