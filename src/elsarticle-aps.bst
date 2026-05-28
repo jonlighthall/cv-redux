@@ -1341,7 +1341,10 @@ FUNCTION {format.url}
 FUNCTION {format.eprint}
 { eprint empty$
     { "" }
-    { eprintprefix eprint * eprinturl eprint * make.href }
+    { eprintprefix eprint * eprinturl eprint * make.href 
+
+
+}
   if$
 }
 
@@ -1370,9 +1373,9 @@ FUNCTION {output.web.refs}
   addeprints eprint empty$ not and
     { format.eprint 
       mid.sentence 'output.state := 
-      output.nonnull.original
-      after.block 'output.state := 
-    }
+    output.nonnull.original
+    after.block 'output.state := 
+      }
     'skip$
   if$
   adddoiresolver doi empty$ not and
@@ -1678,8 +1681,9 @@ FUNCTION {misc}
   title empty$ 'skip$ 'setup.inlinelink if$ % urlbst
   format.title output
   howpublished output
-  format.note output
+  
   format.date output
+  format.note output
   %  fin.entry
   %  write.url
   title empty$ %These lines add URL instead of "[link]"
@@ -1797,11 +1801,11 @@ FUNCTION {begin.bib}
     { preamble$ write$ newline$ }
   if$
   "\begin{thebibliography}{"  longest.label  * "}" *
-  %"\begin{thebibliography}{99}" 
+  %"\begin{thebibliography}{999}" 
   write$ newline$
   "\expandafter\ifx\csname url\endcsname\relax"
   write$ newline$
-  "  \def\url#1{\texttt{#1}}\fi"
+   "  \def\url#1{\texttt{#1}}\fi"
   write$ newline$
   "\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi"
   write$ newline$

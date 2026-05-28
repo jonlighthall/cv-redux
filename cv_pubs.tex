@@ -1,40 +1,77 @@
-\nocite{}
+%% E-prints, preprints, and manuscripts
+\nociteeprint{Carrier_2022_I} %
+\nociteeprint{Carrier_2022_II} % 
 
+%% Listed here are journal publications only.
+%  Conference proceedings are found in talks.tex
+%  Listed in reverse order of publication
+\nocite{Carrier_2023_I}
+\nocite{Carrier_2023_II}
+\nocite{Carrier_2023_III}
+\nocite{Sun_2023} % 27 Feb 2022
+\nocite{Anastasiou_2022}   
+\nocite{Davids_2019}   
+\nocite{Randhawa_2019}
+\nocite{Tanaka_2017}%10 Nov 2017
+\nocite{Kumar_2017}%28 June 2017
+\nocite{Bedoor_2016}%21 April 2016
+\nocite{Sanetullaev_2015}%2 March 2016
+\nocite{Kirsebom_2016}%2 February 2016
+\nocite{Kanungo_2015}%12 May 2015
+\nocite{Wuosmaa_2015}%8 December 2014
+\nocite{Hoffman_2013}%October 15, 2013
+\nocite{Bedoor_2013}%July 29, 2013
+\nocite{Kay_2013}%March 2013
+\nocite{Sharp_2013}%January 10, 2013
+\nocite{Hoffman_2012}%May 29, 2012
+\nocite{PMarley_2011}%October 31, 2011
+\nocite{Deibel_2011}%October 6, 2011
+\nocite{Kay_2011}%August, 2011
+\nocite{Alcorta_2011}%28 April 2011
+\nocite{Wuosmaa_2010} %23 September 2010
+\nocite{Lighthall_2010} %
+\nocite{Schiffer_2010}%31 March 2010
+\nocite{Lee_2010}%11 January 2010
+\nocite{Wuosmaa_2008}%10 October 2008
+\nocite{Tur_2008}%	
 
+%% Reports
+\nocite{Carrier_2023_MR}
+\nocitereport{Carrier_2023_MR}
 
-%% Listed here are journal publications only.  Conference proceedings are found in talks.tex
-%  Listed in order of publication
-    \nocite{                Anastasiou_2021}   
-    \nocite{                Davids_2019}   
-	\nocite{\jclonly{       Randhawa_2019}}
-	\nocite{\jclonly{       Tanaka_2017}}%10 Nov 2017
-	\nocite{\jclonly{		Kumar_2017}}%28 June 2017
-	\nocite{				Bedoor_2016}%21 April 2016
-	\nocite{\jclonly{		Sanetullaev_2015}}%2 March 2016
-	\nocite{\jclonly{		Kirsebom_2016}}%2 February 2016
-	\nocite{\jclonly{		Kanungo_2015}}%12 May 2015
-	\nocite{				Wuosmaa_2015}%8 December 2014
-	\nocite{				Hoffman_2013}%October 15, 2013
-	\nocite{				Bedoor_2013}%July 29, 2013
-	\nocite{				Kay_2013}%March 2013
-	\nocite{				Sharp_2013}%January 10, 2013
-	\nocite{        		Hoffman_2012}%May 29, 2012
-	\nocite{\jclonly{		PMarley_2011}}%October 31, 2011
-	\nocite{\jclonly{		Deibel_2011}}%October 6, 2011
-	\nocite{				Kay_2011}%August, 2011
-	\nocite{\jclonly{		Alcorta_2011}}%28 April 2011
-	\nocite{				Wuosmaa_2010} %23 September 2010
-	\nocite{				Lighthall_2010} %
-	\nocite{				Schiffer_2010}%31 March 2010
-	\nocite{\jclonly{		Lee_2010}}%11 January 2010
-	\nocite{\jclonly{		Wuosmaa_2008}}%10 October 2008
-	\nocite{\jclonly{		Tur_2008}}%	
-	\nocite{\heliosonly{    Wuosmaa_2007}}%
+% define preprint bibliography
+\renewcommand{\refnameeprint}{Preprints}
+\bibliographystyleeprint{src/elsarticle-aps} 
 
-\renewcommand{\bibname}{Journal Articles} 
-\IfFileExists{../src/bib_link}{\bibliographystyle{../src/elsarticle-aps}}{\bibliographystyle{src/elsarticle-aps}}
+% define article bibliography
+\newcommand{\artname}{Journal Articles}
+\renewcommand{\refname}{\artname}
+\renewcommand{\bibname}{\artname}
+\bibliographystyle{src/elsarticle-aps}
+
+% define preprint bibliography
+\renewcommand{\refnamereport}{Formal Reports}
+\bibliographystylereport{src/elsarticle-aps} 
+
+% insert bibliographies
 \phantomsection
 \addcontentsline{toc}{chapter}{Publications}
+%%-----------------------------------------------------------------------------------------------
+\section*{Author Identifiers}
+\begin{tabular}{r@{ }lc}
+ORCID:&\href{https://orcid.org/0000-0002-2686-7492}{0000-0002-2686-7492}\\
+&&$h$-index\\
+Scopus:&\href{https://www.scopus.com/authid/detail.uri?authorId=23097932900}{23097932900}&15\\
+Google Scholar:&\href{https://scholar.google.com/citations?user=m-3paEoAAAAJ}{m-3paEoAAAAJ}&\textbf{16}\\
+Web of Science:&\href{https://www.webofscience.com/wos/author/record/GWV-5714-2022}{GWV-5714-2022}&14\\
+\end{tabular}
+%%-----------------------------------------------------------------------------------------------
 \phantomsection
-\addcontentsline{toc}{section}{\refname}
-\IfFileExists{../src/bib_link}{\bibliography{../src/bib_link}}{\bibliography{src/bib_link}}
+\addcontentsline{toc}{section}{\refnameeprint}
+\bibliographyeprint{src/bib_link}
+\phantomsection
+\addcontentsline{toc}{section}{\artname}
+\bibliography{src/bib_link}
+\phantomsection
+\addcontentsline{toc}{section}{\refnamereport}
+\bibliographystylereport{src/bib_link}
