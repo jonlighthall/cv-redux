@@ -1,5 +1,6 @@
 \usepackage{everyshi}% http://ctan.org/pkg/everyshi
 \usepackage{etoolbox}% http://ctan.org/pkg/etoolbox
+
 \makeatletter
 \let\@section@title@\relax% Sectional heading storage
 \patchcmd{\@sect}% <cmd>
@@ -8,11 +9,23 @@
 %    {\noindent#6\@svsec#8\ \smash{(continued)}\normalfont}\par\bigskip}\@xsect}% <replace>
     {\noindent#6\textbf\scshape\normalsize\hspace{15pt}\@svsec#8\ \smash{(continued)}\normalfont}\par\bigskip}\@xsect}% <replace>
   {}{}% <success><failure>
+  \newif\if@sectionpage %Conditional to see if we are on the page where a section has been started
 \EveryShipout{%
-  \ifdim\pagetotal>\pagegoal% There is content overflow on this page
-    \aftergroup\@section@title@% Reprint/-insert sectional heading
-  \fi%
+    \ifdim\pagetotal>\pagegoal% There is content overflow on this page
+   %\aftergroup\@section@title@% Reprint/-insert sectional heading
+        \if@sectionpage
+            yes
+             \aftergroup\@section@title@ 
+        \else
+            no
+            \aftergroup\@section@title@
+        \fi
+    \fi%
+    \global\@sectionpagefalse
 }
+%redefinition to make the sectionpage-switch work
+\let\ltx@section=\section
+\renewcommand{\section}{\@sectionpagetrue\ltx@section}
 
-\renewcommand{\@seccntformat}[1]{}
+%\renewcommand{\@seccntformat}[1]{}
 \makeatother
